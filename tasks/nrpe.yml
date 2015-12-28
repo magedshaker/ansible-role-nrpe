@@ -13,7 +13,6 @@
     - "restart nrpe"
 
 - name: Template in override config file (to set allowed_hosts)
-- name: Template in override config file (to set allowed_hosts)
   template: src=override.cfg.j2 dest={{ nagios_cfg_file }} mode=0644
   notify:
     - "restart nrpe"
