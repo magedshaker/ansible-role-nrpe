@@ -1,0 +1,5 @@
+{% if nagios_plugins is defined %}
+{% for i in nagios_plugins %}
+command[{{ i.command }}]={{ item.path }} {{ item.arguments }}
+{% endfor %}
+{% endif %}
