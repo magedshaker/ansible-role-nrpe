@@ -108,7 +108,7 @@ allowed_hosts=127.0.0.1
 #
 # Values: 0=do not allow arguments, 1=allow command arguments
 
-{% if nagios_dont_blame is true %}
+{% if nagios_dont_blame == true %}
 dont_blame_nrpe=0
 {% else %}
 dont_blame_nrpe=1
@@ -131,7 +131,7 @@ dont_blame_nrpe=1
 # Values: 0=do not allow bash command substitutions, 
 #         1=allow bash command substitutions
 
-{% if nagios_allow_command_sub is false %}
+{% if nagios_allow_command_sub == false %}
 allow_bash_command_substitution=0
 {% else %}
 allow_bash_command_substitution=1
@@ -165,7 +165,7 @@ allow_bash_command_substitution=1
 # syslog facility.
 # Values: 0=debugging off, 1=debugging on
 
-{% if nagios_debug is False %}
+{% if nagios_debug == false %}
 debug=0
 {% else %}
 debug=1
