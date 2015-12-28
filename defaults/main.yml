@@ -1,0 +1,37 @@
+---
+# defaults file for ansible-role-nrpe
+
+nrpe_user: "nagios"
+nrpe_group: "nagios"
+nagios_uid: "5900"
+nagios_gid: "900"
+
+# One true at a time please
+install_opsview: False
+install_nrpe: True
+
+opsview_cfg_file: "/usr/local/nagios/etc/nrpe_local/override.cfg"
+nagios_cfg_file: "/etc/nrpe.d/override.cfg"
+nagios_allowed_hosts: "127.0.0.1,10.1.1.1,10.2.2.2"
+
+# If this is True - do not allow command arguments
+nagios_dont_blame: True
+# 
+nagios_allow_command_sub: False
+
+nagios_debug: False
+nagios_command_timeout: 60
+nagios_connection_timeout: 300
+
+opsview_include_dir: "/usr/local/nagios/etc/nrpe_local/"
+nagios_include_dir: "/etc/nrpe.d/"
+
+opsview_libexec_dir: "/usr/local/nagios/libexec"
+nagios_plugins_dir: "/usr/lib64/nagios/plugins"
+
+nagios_custom_checks_file: "check.cfg"
+
+nagios_plugins:
+ - { command: "check_services", path: "{{ nagios_plugins_dir }}/check_services.sh", arguments: "-s $ARG1$ $ARG2$ $ARG3$ $ARG4$" }
+opsview_plugins:
+ - { command: "check_services", path: "{{ opsview_libexec_dir }}/check_services.sh", arguments: "-s $ARG1$ $ARG2$ $ARG3$ $ARG4$" }

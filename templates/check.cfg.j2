@@ -1,0 +1,5 @@
+{% if item.command is defined %}
+{% for i in item.command %}
+command[{{ i.command }}]={{ item.path }} {{ item.arguments }}
+{% endfor %}
+{% endif %}

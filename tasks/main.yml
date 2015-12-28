@@ -1,0 +1,5 @@
+---
+# tasks file for ansible-role-nrpe
+
+- include: redhat.yml
+  when: ansible_os_family == "RedHat"

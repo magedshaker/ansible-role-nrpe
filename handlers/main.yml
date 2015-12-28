@@ -1,0 +1,8 @@
+---
+# handlers file for ansible-role-nrpe
+#
+ - name: restart nagios
+   service: name=nrpe state=restarted
+
+ - name: restart opsview-agent
+   service: name=opsview-agent state=restarted
