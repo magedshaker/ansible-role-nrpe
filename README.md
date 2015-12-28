@@ -3,6 +3,10 @@ ansible-role-nrpe
 
 Installs and configures NRPE / opsview-agent
 
+ - Templates in a file that changes allowed_hosts of nrpe.cfg
+ - Templates in a file that has custom nrpe/opsview checks
+  - Which checks are configured are controlled via two variables
+
 Requirements
 ------------
 
@@ -20,6 +24,9 @@ install_nrpe: False
 
 install_opsview assumes that the server's yum is configured to talk to a repository that has the opsview-agent rpm.
 
+nagios_plugins:
+
+opsview_plugins:
 
 Dependencies
 ------------
