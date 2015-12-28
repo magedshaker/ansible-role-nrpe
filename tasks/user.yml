@@ -6,9 +6,3 @@
 
 - name: Creating nagios user
   user: name=nagios uid={{ nagios_uid }} group=nagios comment="nagios user" home="/var/log/nagios" shell=/bin/bash state=present
-
-- include: opsview.yml
-  when: install_opsview
-
-- include: nrpe.yml
-  when: install_nrpe and install_opsview == False

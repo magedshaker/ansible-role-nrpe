@@ -4,9 +4,13 @@
 # GPG check is disabled because opsview are not signing their packages.
 - name: Install opsview-agent package
   yum: state=present name=opsview-agent disable_gpg_check=yes
+  notify:
+    - "restart opsview"
 
 - name: Template in override config file (to set allowed_hosts)
   template: src=override.cfg.j2 dest={{ opsview_cfg_file }} mode=0644
+  notify:
+    - "restart opsview"
 
 - name: Template in custom checks config file
   template: src=check.cfg.j2 
@@ -14,3 +18,5 @@
             mode=0640
             owner={{ nrpe_user }} group={{ nrpe_group }}
   with_items: opsview_plugins
+  notify:
+    - "restart opsview"

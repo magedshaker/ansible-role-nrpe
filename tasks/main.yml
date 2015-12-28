@@ -1,5 +1,11 @@
 ---
 # tasks file for ansible-role-nrpe
 
-- include: redhat.yml
-  when: ansible_os_family == "RedHat"
+- include: user.yml
+  when: nrpe_user_creation == True
+
+- include: opsview.yml
+  when: ansible_os_family == "RedHat" and install_opsview == True and install_nrpe == False
+
+- include: nrpe.yml
+  when: ansible_os_family == "RedHat" and install_opsview == False and install_nrpe == True
