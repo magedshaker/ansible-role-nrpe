@@ -13,6 +13,7 @@ Requirements
  - if a firewall is used then it should allow access to TCP port 5666 from nagios_allowed_hosts variable
  - custom checks are installed separately
   - If they are available in yum add them to the nrpe_extra_rpms set
+  - By default this installs a few rpms from EPEL.
 
 
 Role Variables

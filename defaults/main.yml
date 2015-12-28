@@ -32,9 +32,15 @@ nagios_plugins_dir: "/usr/lib64/nagios/plugins"
 nagios_custom_checks_file: "check.cfg"
 
 nagios_plugins:
- - { command: "check_services", path: "{{ nagios_plugins_dir }}/check_services.sh", arguments: "-s $ARG1$ $ARG2$ $ARG3$ $ARG4$" }
+ - { command: "check_disk", path: "{{ nagios_plugins_dir }}/check_disk", arguments: "$ARG1$" }
 opsview_plugins:
- - { command: "check_services", path: "{{ opsview_libexec_dir }}/check_services.sh", arguments: "-s $ARG1$ $ARG2$ $ARG3$ $ARG4$" }
+ - { command: "check_users", path: "{{ opsview_libexec_dir }}/check_users", arguments: "$ARG1$" }
+ - { command: "check_load", path: "{{ opsview_libexec_dir }}/check_load", arguments: "$ARG1$" }
+ - { command: "check_disk", path: "{{ opsview_libexec_dir }}/check_disk", arguments: "$ARG1$" }
+ - { command: "check_swap", path: "{{ opsview_libexec_dir }}/check_swap", arguments: "$ARG1$" }
+ - { command: "check_procs", path: "{{ opsview_libexec_dir }}/check_procs", arguments: "$ARG1$" }
+ - { command: "check_memory", path: "{{ opsview_libexec_dir }}/check_memory", arguments: "$ARG1$" }
+ - { command: "check_file_age", path: "{{ opsview_libexec_dir }}/check_file_age", arguments: "$ARG1$" }
 
 nrpe_extra_rpms:
  - nagios-common
