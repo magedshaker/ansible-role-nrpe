@@ -12,6 +12,7 @@ Requirements
  - opsview-agent requires that the yum repo is installed before running this role
  - if a firewall is used then it should allow access to TCP port 5666 from nagios_allowed_hosts variable
  - custom checks are installed separately
+  - If they are available in yum add them to the nrpe_extra_rpms set
 
 
 Role Variables
@@ -35,6 +36,13 @@ nagios_plugins:
 opsview_plugins:
 
 nagios_allowed_hosts: "127.0.0.1,10.1.1.1"
+</pre>
+
+extra rpms:
+<pre>
+nrpe_extra_rpms:
+ - nagios-common
+ - nagios-plugins-smtp
 </pre>
 
 Dependencies

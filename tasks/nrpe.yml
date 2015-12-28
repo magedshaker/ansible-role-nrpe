@@ -6,6 +6,13 @@
   notify:
     - "restart nrpe"
 
+- name: Install extra nrpe packages
+  yum: state=present name={{ item }}
+  with_items: nrpe_extra_rpms
+  notify:
+    - "restart nrpe"
+
+- name: Template in override config file (to set allowed_hosts)
 - name: Template in override config file (to set allowed_hosts)
   template: src=override.cfg.j2 dest={{ nagios_cfg_file }} mode=0644
   notify:
