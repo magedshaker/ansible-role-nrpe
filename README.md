@@ -6,9 +6,12 @@ Installs and configures NRPE or opsview-agent
  - Templates in a file that changes allowed_hosts of nrpe.cfg
  - Templates in a file that has custom nrpe/opsview checks
 
-With CentOS7 and NRPE changing username that runs nrpe is not trivial and not yet implemented.
- - change systemd to User=%i instead of hard coded to user and group nrpe 
+With EL7 and NRPE changing username that runs nrpe is not trivial and not yet implemented.
+ - change systemd to User=nagios
  - ownership of the pid_file
+  - More details in here: https://github.com/NagiosEnterprises/nrpe/issues/28
+
+With EL6 changing nrpe_user and nrpe_group should work.
 
 Requirements
 ------------
