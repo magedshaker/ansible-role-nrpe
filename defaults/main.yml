@@ -42,6 +42,10 @@ nagios_custom_checks_file: "check.cfg"
 
 nagios_plugins:
  - { command: "check_disk", path: "{{ nagios_plugins_dir }}/check_disk", arguments: "$ARG1$" }
+ - { command: "check_ntp_time", path: "{{ nagios_plugins_dir }}/check_ntp_time", arguments: "$ARG1$" }
+ - { command: "check_load", path: "{{ nagios_plugins_dir }}/check_load", arguments: "$ARG1$" }
+ - { command: "check_swap", path: "{{ nagios_plugins_dir }}/check_swap", arguments: "$ARG1$" }
+ - { command: "check_procs", path: "{{ nagios_plugins_dir }}/check_procs", arguments: "$ARG1$" }
 opsview_plugins:
  - { command: "check_users", path: "{{ opsview_libexec_dir }}/check_users", arguments: "$ARG1$" }
  - { command: "check_load", path: "{{ opsview_libexec_dir }}/check_load", arguments: "$ARG1$" }
