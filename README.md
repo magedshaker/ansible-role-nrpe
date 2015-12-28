@@ -1,17 +1,17 @@
 ansible-role-nrpe
 =========
 
-Installs and configures NRPE / opsview-agent
+Installs and configures NRPE or opsview-agent
 
  - Templates in a file that changes allowed_hosts of nrpe.cfg
  - Templates in a file that has custom nrpe/opsview checks
-  - Which checks are configured are controlled via two variables
 
 Requirements
 ------------
 
  - opsview-agent requires that the yum repo is installed before running this role
  - if a firewall is used then it should allow access to TCP port 5666 from nagios_allowed_hosts variable
+ - custom checks are installed separately
 
 
 Role Variables
