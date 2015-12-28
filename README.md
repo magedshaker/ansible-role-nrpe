@@ -10,6 +10,9 @@ Installs and configures NRPE / opsview-agent
 Requirements
 ------------
 
+ - opsview-agent requires that the yum repo is installed before running this role
+ - if a firewall is used then it should allow access to TCP port 5666 from nagios_allowed_hosts variable
+
 
 Role Variables
 --------------
@@ -24,14 +27,18 @@ install_nrpe: False
 
 install_opsview assumes that the server's yum is configured to talk to a repository that has the opsview-agent rpm.
 
-nagios_plugins:
+Other important ones:
 
+<pre>
+nagios_plugins:
+  - { command: "name", path: "path/to/where/plugin/is/installed", arguments: "arguments to this check" }
 opsview_plugins:
+
+nagios_allowed_hosts: "127.0.0.1,10.1.1.1"
+</pre>
 
 Dependencies
 ------------
-
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
 
 Example Playbook
 ----------------
