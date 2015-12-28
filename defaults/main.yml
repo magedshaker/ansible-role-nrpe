@@ -1,10 +1,19 @@
 ---
 # defaults file for ansible-role-nrpe
-nrpe_user_creation: True
-nrpe_user: "nagios"
-nrpe_group: "nagios"
+# ##  User changing on EL7 derivatives
+# if nrpe_user and group are changed to for example "nagios"
+# you should ensure that systemd launches nrpe as these
+# as well as ownership of the /var/run directory
+# The nrpe systemd cannot handle this without modifications to 
+# /usr/lib/systemd/system/nrpe.service
+#
+nrpe_user_creation: False
+nrpe_user: "nrpe"
+nrpe_group: "nrpe"
 nagios_uid: "5900"
 nagios_gid: "900"
+
+########
 
 # One true at a time please
 install_opsview: False
