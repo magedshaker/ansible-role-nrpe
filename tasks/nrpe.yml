@@ -26,3 +26,6 @@
   with_items: nagios_plugins
   notify:
     - "restart nrpe"
+
+- name: Make sure nrpe is started and enabled
+  service: name=nrpe state=started enabled=yes

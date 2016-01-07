@@ -21,3 +21,6 @@
   with_items: opsview_plugins
   notify:
     - "restart opsview"
+
+- name: Make sure opsview-agent is started and enabled
+  service: name=opsview-agent state=started enabled=yes
