@@ -1,0 +1,8 @@
+# hplog - POST/IML log
+# hpssacli/hpacucli - hw raid controller / disk status
+# hpasmcli - other hardware like DIMMs, fans, temperature, psus
+Defaults:{{ nrpe_user }} !requiretty
+{{ nrpe_user }} ALL=NOPASSWD: /sbin/hplog
+{{ nrpe_user }} ALL=NOPASSWD: /sbin/hpssacli
+{{ nrpe_user }} ALL=NOPASSWD: /sbin/hpacucli
+{{ nrpe_user }} ALL=NOPASSWD: /sbin/hpasmcli

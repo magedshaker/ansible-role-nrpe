@@ -29,3 +29,7 @@
 
 - name: Make sure nrpe is started and enabled
   service: name=nrpe state=started enabled=yes
+
+- name: Allow nrpe_user to run some HP commands on HP systems
+  template: src=sudoers_nrpe_hp dest=/etc/sudoers.d/sudoers_nrpe_hp mode=640
+  when: ansible_system_vendor == "HP"
