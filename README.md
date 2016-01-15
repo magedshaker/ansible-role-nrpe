@@ -1,6 +1,8 @@
 ansible-role-nrpe
 =========
 
+[![Build Status](https://travis-ci.org/CSC-IT-Center-for-Science/ansible-role-nrpe.svg?branch=master)](https://travis-ci.org/CSC-IT-Center-for-Science/ansible-role-nrpe)
+
 Installs and configures NRPE or opsview-agent
 
  - Templates in a file that changes allowed_hosts of nrpe.cfg
