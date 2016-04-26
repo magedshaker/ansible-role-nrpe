@@ -8,7 +8,7 @@
 
 - name: Install extra nrpe packages
   yum: state=present name={{ item }}
-  with_items: nrpe_extra_rpms
+  with_items: "{{ nrpe_extra_rpms }}"
   notify:
     - "restart nrpe"
 
@@ -23,7 +23,7 @@
             dest={{ nagios_include_dir }}/{{ nagios_custom_checks_file }} 
             mode=0640
             owner={{ nrpe_user }} group={{ nrpe_group }}
-  with_items: nagios_plugins
+  with_items: "{{ nagios_plugins }}"
   notify:
     - "restart nrpe"
 
