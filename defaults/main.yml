@@ -13,6 +13,9 @@ nrpe_group: "nrpe"
 nagios_uid: "5900"
 nagios_gid: "900"
 
+# Set this to true to set Defaults:nrpe_user !requiretty in sudoers
+nrpe_disable_sudo_requiretty: False
+
 ########
 
 # One true at a time please
