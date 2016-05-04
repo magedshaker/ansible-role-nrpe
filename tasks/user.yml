@@ -6,3 +6,6 @@
 
 - name: Creating nagios user
   user: name=nagios uid={{ nagios_uid }} group=nagios comment="nagios user" home="/var/log/nagios" shell=/bin/bash state=present
+
+- name: Disable requiretty for nagiosuser
+  template: src=sudoers_nrpe_tty.j2 dest=/etc/sudoers.d/nrpe_tty mode=0600
