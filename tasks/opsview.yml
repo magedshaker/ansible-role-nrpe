@@ -5,13 +5,13 @@
 - name: Install opsview-agent package
   yum: state=present name=opsview-agent disable_gpg_check=yes
   notify:
-    - "restart opsview"
+    - "restart opsview-agent"
 
 - name: Template in override config file (to set allowed_hosts)
   template: src=override.cfg.j2 dest={{ opsview_cfg_file }} mode=0644
             owner={{ nrpe_user }} group={{ nrpe_group }}
   notify:
-    - "restart opsview"
+    - "restart opsview-agent"
 
 - name: Template in custom checks config file for opsview
   template: src=check_opsview.cfg.j2 
@@ -20,7 +20,7 @@
             owner={{ nrpe_user }} group={{ nrpe_group }}
   with_items: "{{ opsview_plugins }}"
   notify:
-    - "restart opsview"
+    - "restart opsview-agent"
 
 - name: Make sure opsview-agent is started and enabled
   service: name=opsview-agent state=started enabled=yes
