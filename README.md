@@ -1,7 +1,7 @@
 ansible-role-nrpe
 =========
 
-[![Build Status](https://travis-ci.org/CSC-IT-Center-for-Science/ansible-role-nrpe.svg?branch=master)](https://travis-ci.org/CSC-IT-Center-for-Science/ansible-role-nrpe)
+[![Build Status](https://travis-ci.org/CSCfi/ansible-role-nrpe.svg?branch=master)](https://travis-ci.org/CSCfi/ansible-role-nrpe)
 
 Installs and configures NRPE or opsview-agent
 
