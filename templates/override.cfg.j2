@@ -209,3 +209,9 @@ connection_timeout=300
 # Values: 0=only seed from /dev/[u]random, 1=also seed from weak randomness
 
 #allow_weak_random_seed=1
+
+{% if nagios_extra_settings_list is defined %}
+{% for nagios_extra_c in nagios_extra_settings_list %}
+{{ nagios_extra_c }}
+{% endfor %}
+{% endif %}

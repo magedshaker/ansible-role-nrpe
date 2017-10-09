@@ -55,6 +55,12 @@ nrpe_extra_rpms:
  - nagios-plugins-smtp
 </pre>
 
+define an include_dir
+<pre>
+nagios_extra_settings_list:
+ - include_dir={{ nagios_include_dir }}
+</pre>
+
 Dependencies
 ------------
 
