@@ -4,7 +4,7 @@
    remote_user: root
    vars:
      - nagios_extra_settings_list:
-       - include_dir={{ nagios_include_dir }}
+       - some_setting=value
 
    roles:
      - ansible-role-nrpe
