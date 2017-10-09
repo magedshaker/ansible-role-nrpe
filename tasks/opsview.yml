@@ -7,6 +7,15 @@
   notify:
     - "restart opsview-agent"
 
+- name: Remove all hardcoded command settings from default nrpe.cfg
+  lineinfile:
+    state: absent
+    regexp: '^command\['
+    path: '/usr/local/nagios/etc/nrpe.cfg'
+  notify:
+    - "restart opsview-agent"
+  when: remove_hardcoded_checks|default(false)|bool == true
+
 - name: Template in override config file (to set allowed_hosts)
   template: src=override.cfg.j2 dest={{ opsview_cfg_file }} mode=0644
             owner={{ nrpe_user }} group={{ nrpe_group }}

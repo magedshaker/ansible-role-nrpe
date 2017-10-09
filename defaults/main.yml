@@ -26,6 +26,12 @@ opsview_cfg_file: "/usr/local/nagios/etc/nrpe_local/override.cfg"
 nagios_cfg_file: "/etc/nrpe.d/override.cfg"
 nagios_allowed_hosts: "127.0.0.1,10.1.1.1,10.2.2.2"
 
+# Remove all command[*] entries from the default nrpe.cfg file.
+# The "command" settings in the default file take precedence over settings in
+# an nrpe.d directory and can sometimes interfere with how the user actually
+# wants to configure checks.
+remove_hardcoded_checks: false
+
 # If this is True - do not allow command arguments
 nagios_dont_blame: True
 # 

@@ -12,6 +12,15 @@
   notify:
     - "restart nrpe"
 
+- name: Remove all hardcoded command settings from default nrpe.cfg
+  lineinfile:
+    state: absent
+    regexp: '^command\['
+    path: '/etc/nagios/nrpe.cfg'
+  notify:
+    - "restart nrpe"
+  when: remove_hardcoded_checks|default(false)|bool == true
+
 - name: Template in override config file (to set allowed_hosts)
   template: src=override.cfg.j2 dest={{ nagios_cfg_file }} mode=0644
             owner={{ nrpe_user }} group={{ nrpe_group }}
