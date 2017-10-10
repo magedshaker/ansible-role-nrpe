@@ -41,6 +41,9 @@ nagios_debug: False
 nagios_command_timeout: 60
 nagios_connection_timeout: 300
 
+#nagios_extra_settings_list:
+# - include_dir={{ nagios_include_dir }}
+
 opsview_include_dir: "/usr/local/nagios/etc/nrpe_local/"
 nagios_include_dir: "/etc/nrpe.d/"
 
