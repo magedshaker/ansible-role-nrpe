@@ -15,6 +15,8 @@ With EL7 and NRPE changing username that runs nrpe is not trivial and not yet im
 
 With EL6 changing nrpe_user and nrpe_group should work.
 
+https://github.com/CSCfi/ansible-role-nrpe-plugins/ is a sister-role which one can use to actually install plugins.
+
 Requirements
 ------------
 

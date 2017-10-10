@@ -121,6 +121,8 @@ function extra_tests(){
 
     echo "TEST: cat override.cfg"
     cat /etc/nrpe.d/override.cfg
+    echo "TEST: cat resulting nrpe.cfg"
+    cat /etc/nagios/nrpe.cfg
 }
 
 

@@ -5,6 +5,6 @@
    vars:
      - nagios_extra_settings_list:
        - some_setting=value
-
+     - remove_hardcoded_checks: True
    roles:
      - ansible-role-nrpe
