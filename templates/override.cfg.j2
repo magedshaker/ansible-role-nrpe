@@ -109,9 +109,9 @@ allowed_hosts=127.0.0.1
 # Values: 0=do not allow arguments, 1=allow command arguments
 
 {% if nagios_dont_blame == true %}
-dont_blame_nrpe=0
-{% else %}
 dont_blame_nrpe=1
+{% else %}
+dont_blame_nrpe=0
 {% endif %}
 
 
