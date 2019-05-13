@@ -7,10 +7,11 @@
     - "restart nrpe"
 
 - name: Install extra nrpe packages
-  yum: state=present name={{ item }}
+  yum: 
   with_items: "{{ nrpe_extra_rpms }}"
   notify:
     - "restart nrpe"
+    
 
 - name: Remove all hardcoded command settings from default nrpe.cfg
   lineinfile:
