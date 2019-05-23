@@ -3,12 +3,14 @@ FROM centos:centos7
 MAINTAINER James Cuzella <james.cuzella@lyraphase.com>
 RUN yum clean all && \
     yum -y install epel-release && \
-    yum -y groupinstall "Development tools" && \
+    yum -y groupinstall "Development Tools" && \
     yum -y install python-devel MySQL-python sshpass && \
     yum -y install acl sudo && \
     sed -i -e 's/^Defaults.*requiretty/Defaults    !requiretty/' -e 's/^%wheel.*ALL$/%wheel    ALL=(ALL)    NOPASSWD: ALL/' /etc/sudoers && \
-    yum -y install PyYAML python-jinja2 python-httplib2 python-keyczar python-paramiko python-setuptools git python-pip \
-    pip install pyrax pysphere boto passlib dnspython && \
+    yum -y install git python-pip && \
+    pip install --upgrade pip && \
+    pip install --upgrade PyYAML jinja2 httplib2 paramiko python-keyczar setuptools cryptography pbr && \
+    pip install pyrax pysphere boto boto3 passlib dnspython && \
     yum -y remove $(rpm -qa "*-devel") && \
     yum -y groupremove "Development tools" && \
     yum -y autoremove && \
