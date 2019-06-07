@@ -7,7 +7,7 @@
     - "restart nrpe"
 
 - name: Install extra nrpe packages
-  yum: state=present name={{ item }}
+  yum: 
   with_items: "{{ nrpe_extra_rpms }}"
   notify:
     - "restart nrpe"
