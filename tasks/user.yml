@@ -2,7 +2,17 @@
 # tasks file for ansible-role-nrpe
 
 - name: Creating nagios group
-  group: name=nagios gid={{ nagios_gid }} state=present
+  group:
+    name: nagios
+    gid: "{{ nagios_gid }}"
+    state: present
 
 - name: Creating nagios user
-  user: name=nagios uid={{ nagios_uid }} group=nagios comment="nagios user" home="/var/log/nagios" shell=/bin/bash state=present
+  user:
+    name: nagios
+    uid: "{{ nagios_uid }}"
+    group: nagios
+    comment: "nagios user"
+    home: "/var/log/nagios"
+    shell: /bin/bash
+    state: present
