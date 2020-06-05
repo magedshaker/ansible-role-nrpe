@@ -1,6 +1,9 @@
 ---
 # tasks file for ansible-role-nrpe
 
+- include: add_additional_nrpe_checks.yml
+  when: additional_nrpe_checks is defined
+
 - include: user.yml
   when: nrpe_user_creation
 

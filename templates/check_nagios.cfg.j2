@@ -3,3 +3,9 @@
 command[{{ i.command }}]={{ i.path }} {{ i.arguments }}
 {% endfor %}
 {% endif %}
+
+{%- if nrpe_checks is defined %}
+{% for i in nrpe_checks %}
+command[{{ i.command }}]={{ i.path }} {{ i.arguments }}
+{% endfor %}
+{% endif %}

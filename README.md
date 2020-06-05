@@ -63,6 +63,31 @@ nagios_extra_settings_list:
  - include_dir={{ nagios_include_dir }}
 </pre>
 
+Adding nrpe checks from another git repository
+<pre>
+additional_nrpe_checks:
+  - src: "https://github.com/CSCfi/puppet-opsviewagent.git"
+    dest: "{{ nagios_plugins_dir }}/puppet_opsviewagent"
+    version: "6fd3aae095a5d8691e8636214ff7d48c80c3ff67"
+    script_path: "{{ nagios_plugins_dir }}/puppet_opsviewagent/files/nrpe/"
+    type: 'git' # Possibility to add other sources in the future
+    commands:
+      - scripts_name: check_linux_memory
+        command: check_linux_memory
+        arguments: '-f -w 10 -c 5'
+      - script_name: check_cpu
+</pre>
+
+Adding local nrpe checks with the `additional_nrpe_checks` variabel
+<pre>
+additional_nrpe_checks
+  - script_path: "{{ nagios_plugins_dir }}"
+    type: 'local'
+    commands:
+      - { command: 'check_procs' }
+</pre>
+
+
 Dependencies
 ------------
 
