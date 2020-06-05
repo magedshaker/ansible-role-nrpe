@@ -31,7 +31,6 @@
             dest={{ nagios_include_dir }}/{{ nagios_custom_checks_file }}
             mode=0640
             owner={{ nrpe_user }} group={{ nrpe_group }}
-  with_items: "{{ nagios_plugins }}"
   tags: update_nrpe_cfg
   notify:
     - "restart nrpe"

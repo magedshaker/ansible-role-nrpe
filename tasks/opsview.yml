@@ -27,7 +27,6 @@
             dest={{ opsview_include_dir }}/{{ nagios_custom_checks_file }}
             mode=0644
             owner={{ nrpe_user }} group={{ nrpe_group }}
-  with_items: "{{ opsview_plugins }}"
   tags: update_opsview_cfg
   notify:
     - "restart opsview-agent"
