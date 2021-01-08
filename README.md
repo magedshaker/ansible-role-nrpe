@@ -75,7 +75,8 @@ additional_nrpe_checks:
       - scripts_name: check_linux_memory
         command: check_linux_memory
         arguments: '-f -w 10 -c 5'
-      - script_name: check_cpu
+      - script_name: check_disk
+        setype: nagios_checkdisk_plugin_exec_t
 </pre>
 
 Adding local nrpe checks with the `additional_nrpe_checks` variabel

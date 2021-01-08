@@ -9,21 +9,22 @@
   with_items: "{{ additional_nrpe_checks }}"
   when: item.type == 'git'
 
-- name: Set default nrpe command argument when nagios_dont_blame is true
-  set_fact:
-    default_argument: "$ARG1$"
-  when: nagios_dont_blame == true
-- name: Set default nrpe command argument when nagios_dont_blame is false
-  set_fact:
-    default_argument: ""
-  when: nagios_dont_blame == false
+- name: set SELinux contexts for checks
+  sefcontext:
+    target: "{{ item[0].script_path + item[1].script_name }}"
+    setype: "{{ item[1].setype }}"
+  with_subelements: 
+    - "{{ additional_nrpe_checks }}"
+    - commands
+  when: item[1].setype is defined
+  notify: SELinux context changed
 
 - name: Genereate facts for additional nrpe checks
   set_fact:
      nrpe_checks: "{{ nrpe_checks |default([]) + [ {
        'command': item[1].command |default( item[1].script_name ),
        'path': item[0].script_path + item[1].script_name |default( item[1].command ),
-       'arguments': item[1].arguments |default( default_argument )
+       'arguments': item[1].arguments |default( nagios_default_argument )
      }] }}"
   with_subelements:
      - "{{ additional_nrpe_checks }}"

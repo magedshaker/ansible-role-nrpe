@@ -1,6 +1,13 @@
 ---
 # handlers file for ansible-role-nrpe
 #
+ - name: SELinux context changed
+   command: "restorecon {{ item[0].script_path + item[1].script_name }}"
+   with_subelements:
+     - "{{ additional_nrpe_checks }}"
+     - commands
+   when: item[1].setype is defined
+
  - name: restart nrpe
    service: name=nrpe state=restarted
 

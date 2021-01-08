@@ -35,6 +35,7 @@ remove_hardcoded_checks: false
 # If nagios_dont_blame is True we allow command arguments
 # Before version 1.3.0 of ansible-role-nrpe setting nagios_dont_blame to True prevented command argments.
 nagios_dont_blame: False
+nagios_default_argument: "{{ nagios_dont_blame | ternary( '$ARG1$', '' ) }}"
 
 nagios_allow_command_sub: False
 
