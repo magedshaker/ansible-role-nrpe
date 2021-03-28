@@ -1,8 +1,8 @@
 ---
 # tasks file for ansible-role
+- import_playbook: nrpe.yml
+  when: ansible_os_family == "Debian" and not install_opsview and install_nrpe
 
 - import_playbook: opsview.yml
   when: ansible_os_family == "RedHat" and install_opsview and not install_nrpe
 
-- import_playbook: nrpe.yml
-  when: ansible_os_family == "Debian" and not install_opsview and install_nrpe
