@@ -1,11 +1,11 @@
 ---
 # tasks file for ansible-role
 
-- include: sudo.yml
+- import_playbook: sudo.yml
   when: nrpe_disable_sudo_requiretty
 
-- include: opsview.yml
+- import_playbook: opsview.yml
   when: ansible_os_family == "RedHat" and install_opsview and not install_nrpe
 
-- include: nrpe.yml
+- import_playbook: nrpe.yml
   when: ansible_os_family == "Debian" and not install_opsview and install_nrpe
