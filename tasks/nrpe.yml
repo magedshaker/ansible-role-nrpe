@@ -2,7 +2,7 @@
 # tasks file for ansible-role-nrpe
 #
 - name: Install nrpe package
-  yum: state=present name=nrpe
+  yum: state=present name=nagios-nrpe-server
   notify:
     - "restart nrpe"
 
