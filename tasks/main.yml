@@ -1,8 +1,5 @@
 ---
-# tasks file for ansible-role-nrpe
-
-- include: user.yml
-  when: nrpe_user_creation
+# tasks file for ansible-role
 
 - include: sudo.yml
   when: nrpe_disable_sudo_requiretty
