@@ -1,7 +1,8 @@
 ---
+
 - name: Disable requiretty for nagiosuser
-  copy:
-    src: sudoers_nrpe_tty.j2
-    dest: /etc/sudoers.d/nrpe_tty
-    mode: 0600
+   copy:
+     src: sudoers_nrpe_tty.j2
+     dest: /etc/sudoers.d/nrpe_tty
+     mode: 0600
   when: nrpe_disable_sudo_requiretty
