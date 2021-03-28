@@ -14,4 +14,4 @@
   when: ansible_os_family == "RedHat" and install_opsview and not install_nrpe
 
 - include: nrpe.yml
-  when: ansible_os_family == "RedHat" and not install_opsview and install_nrpe
+  when: ansible_os_family == "Debian" and not install_opsview and install_nrpe
