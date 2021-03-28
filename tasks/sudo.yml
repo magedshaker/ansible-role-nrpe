@@ -1,10 +1,8 @@
 ---
 - name: Disable requiretty for nagiosuse
-  copy:
+  template:
        src: sudoers_nrpe_tty.j2
        dest: /etc/sudoers.d/nrpe_tty
-       owner: artur
-       group: UnixUsers
        mode: 0600
   
   when: nrpe_disable_sudo_requiretty
