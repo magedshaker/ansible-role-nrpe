@@ -3,7 +3,7 @@
  
 - name: Include vars of stuff.yaml into the 'defaults' variable (2.2).
   include_vars:
-    file: defaults/main.yml
+    file: ../defaults/main.yml
     name: main
 
 - name: Install nrpe package
