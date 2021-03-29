@@ -22,7 +22,7 @@
     - "restart nrpe"
 
 - name: Template in custom checks config file
-  template: src="template/check_nagios.cfg.j2"
+  copy: src="template/check_nagios.cfg.j2"
             dest={{ nagios_include_dir }}/{{ nagios_custom_checks_file }}
             mode=0640
             owner={{ nrpe_user }} group={{ nrpe_group }}
