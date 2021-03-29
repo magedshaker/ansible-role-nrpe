@@ -6,11 +6,6 @@
   notify:
     - "restart nagios-nrpe-server"
 
-- name: Install extra nrpe packages
-  apt:  state=present name="{{ nrpe_extra_rpms }}"
-  notify:
-    - "restart nagios-nrpe-server"
-
 - name: Remove all hardcoded command settings from default nrpe.cfg
   lineinfile:
     state: absent
