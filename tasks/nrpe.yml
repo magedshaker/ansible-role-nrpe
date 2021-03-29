@@ -2,14 +2,14 @@
 # tasks file for ansible-role-nrpe
 #
 - name: Install nrpe package
-  yum: state=present name=nagios-nrpe-server
+  apt: state=present name=nagios-nrpe-server
   notify:
-    - "restart nrpe"
+    - "restart nagios-nrpe-server"
 
 - name: Install extra nrpe packages
-  yum:  state=present name="{{ nrpe_extra_rpms }}"
+  apt:  state=present name="{{ nrpe_extra_rpms }}"
   notify:
-    - "restart nrpe"
+    - "restart nagios-nrpe-server"
 
 - name: Remove all hardcoded command settings from default nrpe.cfg
   lineinfile:
@@ -36,7 +36,7 @@
     - "restart nrpe"
 
 - name: Make sure nrpe is started and enabled
-  service: name=nrpe state=started enabled=yes
+  service: name=nagios-nrpe-server state=started enabled=yes
 
 - name: Allow nrpe_user to run some HP commands on HP systems
   template: src=sudoers_nrpe_hp dest=/etc/sudoers.d/sudoers_nrpe_hp mode=640
