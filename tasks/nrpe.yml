@@ -14,6 +14,11 @@
   notify:
     - "restart nrpe"
   when: remove_hardcoded_checks|default(false)|bool
+  
+  name: Include vars of stuff.yaml into the 'defaults' variable (2.2).
+  include_vars:
+    file: defaults/main.yaml
+    name: main
 
 - name: Template in override config file 
   copy: src="templates/override.cfg.j2 dest={{ nagios_cfg_file }} mode=0644"
