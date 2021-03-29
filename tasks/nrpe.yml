@@ -21,7 +21,7 @@
   when: remove_hardcoded_checks|default(false)|bool
 
 - name: Template in override config file 
-  template: src=templates/override.cfg.j2 dest=/etc/nagios/nrpe.cfg mode=0644
+  template: src=../templates/override.cfg.j2 dest=/etc/nagios/nrpe.cfg mode=0644
             owner={{ nrpe_user }} group={{ nrpe_group }}
   notify:
     - "restart nrpe"
