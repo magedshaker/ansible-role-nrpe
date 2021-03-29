@@ -3,6 +3,8 @@
 - hosts: all
   gather_facts: true
   become: true
+  vars_files:
+    - /defaults/main.yml
   tasks:
 
 #      name: bind-utils
