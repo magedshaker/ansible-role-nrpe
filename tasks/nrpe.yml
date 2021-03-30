@@ -24,7 +24,7 @@
   template: src=../templates/override.cfg.j2 dest={{ nagios_cfg_file }} mode=0644
             owner={{ nrpe_user }} group={{ nrpe_group }}
   notify:
-    - "restart nrpe"
+    - "restart nagios-nrpe-server"
 
 - name: Template in custom checks config file
   template: src="templates/check_nagios.cfg.j2"
@@ -33,7 +33,7 @@
             owner={{ nrpe_user }} group={{ nrpe_group }}
   tags: update_nrpe_cfg
   notify:
-    - "restart nrpe"
+    - "restart nagios-nrpe-server"
 
 - name: Make sure nrpe is started and enabled
   service: name=nagios-nrpe-server state=started enabled=yes
