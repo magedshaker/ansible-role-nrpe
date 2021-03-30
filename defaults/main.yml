@@ -8,8 +8,8 @@
 # /usr/lib/systemd/system/nrpe.service
 #
 nrpe_user_creation: False
-nrpe_user: "nrpe"
-nrpe_group: "nrpe"
+nrpe_user: "nagios"
+nrpe_group: "nagios"
 nagios_uid: "5900"
 nagios_gid: "900"
 
