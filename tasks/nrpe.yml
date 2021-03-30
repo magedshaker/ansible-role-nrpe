@@ -36,7 +36,7 @@
     - "restart nagios-nrpe-server"
 
 - name: Make sure nrpe is started and enabled
-  service: name=nagios-nrpe-server state=started enabled=yes
+  service: name=nrpe state=started enabled=yes
 
 - name: Allow nrpe_user to run some HP commands on HP systems
   template: src=sudoers_nrpe_hp dest=/etc/sudoers.d/sudoers_nrpe_hp mode=640
