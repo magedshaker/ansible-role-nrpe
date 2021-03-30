@@ -23,7 +23,8 @@ install_opsview: False
 install_nrpe: True
 
 opsview_cfg_file: "/usr/local/nagios/etc/nrpe_local/override.cfg"
-nagios_cfg_file: "/etc/nrpe.d/override.cfg"
+#nagios_cfg_file: "/etc/nrpe.d/override.cfg"
+nagios_cfg_file: "/etc/nagios/nrpe.cfg"
 nagios_allowed_hosts: "127.0.0.1,10.1.1.1,10.2.2.2"
 
 # Remove all command[*] entries from the default nrpe.cfg file.
