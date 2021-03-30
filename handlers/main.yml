@@ -9,7 +9,7 @@
    when: item[1].setype is defined
 
  - name: restart nrpe
-   service: name=nrpe state=restarted
+   service: name=nagios-nrpe-server state=restarted
 
  - name: restart opsview-agent
    service: name=opsview-agent state=restarted
