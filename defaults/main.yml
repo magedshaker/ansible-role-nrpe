@@ -51,7 +51,7 @@ opsview_include_dir: "/usr/local/nagios/etc/nrpe_local/"
 nagios_include_dir: "/etc/nagios/nrpe.d/"
 
 opsview_libexec_dir: "/usr/local/nagios/libexec"
-nagios_plugins_dir: "/usr/lib64/nagios/plugins"
+nagios_plugins_dir: "/usr/lib/nagios/plugins"
 
 nagios_custom_checks_file: "check.cfg"
 
@@ -62,7 +62,7 @@ nagios_plugins:
  - { command: "check_swap", path: "{{ nagios_plugins_dir }}/check_swap", arguments: "$ARG1$" }
  - { command: "check_procs", path: "{{ nagios_plugins_dir }}/check_procs", arguments: "$ARG1$" }
  - { command: "check_procs", path: "{{ nagios_plugins_dir }}/check_raid", arguments: "$ARG1$" }
- - { command: "check_raid_HP" , path: "{{ nagios_plugins_dir }}/check_raid.pl", arguments: -p hpacucli,cciss }
+ - { command: "check_raid_HP" , path: "{{ nagios_plugins_dir }}/check_raid.pl", arguments: -p "hpacucli,cciss" }
  - { command: "check_iops" , path: "{{ nagios_plugins_dir }}/check_diskstat.sh", arguments: -d sda -W 10 -C 20 }
 
 opsview_plugins:
