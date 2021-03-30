@@ -62,8 +62,8 @@ nagios_plugins:
  - { command: "check_swap", path: "{{ nagios_plugins_dir }}/check_swap", arguments: "$ARG1$" }
  - { command: "check_procs", path: "{{ nagios_plugins_dir }}/check_procs", arguments: "$ARG1$" }
  - { command: "check_procs", path: "{{ nagios_plugins_dir }}/check_raid", arguments: "$ARG1$" }
- - { command: "check_raid" , path: "{{ nagios_plugins_dir }}/check_raid.pl, -p hpacucli,cciss }
- - { command: "check_iops" , path: "{{ nagios_plugins_dir }}/check_diskstat.sh, -d sda -W 10 -C 20 }
+ - { command: "check_raid_HP" , path: "{{ nagios_plugins_dir }}/check_raid.pl", arguments: -p hpacucli,cciss }
+ - { command: "check_iops" , path: "{{ nagios_plugins_dir }}/check_diskstat.sh", arguments: -d sda -W 10 -C 20 }
 
 opsview_plugins:
  - { command: "check_users", path: "{{ opsview_libexec_dir }}/check_users", arguments: "$ARG1$" }
