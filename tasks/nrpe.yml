@@ -20,7 +20,7 @@
     - "restart nrpe"
   when: remove_hardcoded_checks|default(false)|bool
   
-- name: copy rundeck files
+- name: copy custom plugin files
   copy: src=../templates/{{ item }} dest={{ nagios_plugins_dir }}
   with_items:
     - check_diskstat.sh
