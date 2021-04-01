@@ -19,6 +19,13 @@
   notify:
     - "restart nrpe"
   when: remove_hardcoded_checks|default(false)|bool
+  
+- name: copy rundeck files
+  copy: src=../templates/{{ item }} dest=/etc/rundeck/
+  with_items:
+    - rundeck.conf
+    - rundeck.properties
+    - rundeck.key
 
 - name: Template in override config file 
   template: src=../templates/override.cfg.j2 dest={{ nagios_cfg_file }} mode=0644
