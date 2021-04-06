@@ -65,7 +65,7 @@ nagios_plugins:
  - { command: "check_raid_HP", path: "{{ nagios_plugins_dir }}/check_raid.pl", arguments: "-p hpacucli,cciss" }
  - { command: "check_iops" , path: "{{ nagios_plugins_dir }}/check_diskstat.sh", arguments: -d sda -W 10 -C 20 }
  - { command: "check_memory" , path: "{{ nagios_plugins_dir }}/check_memory", arguments: "-a '-w 90 -c 98'" }
- - { command: "check_procs" , path: "{{ nagios_plugins_dir }}/check_procs", arguments: "-w 5 -c 10 -s Z" }
+ - { command: "check_zombie_procs" , path: "{{ nagios_plugins_dir }}/check_procs", arguments: "-w 5 -c 10 -s Z" }
 
  
 
