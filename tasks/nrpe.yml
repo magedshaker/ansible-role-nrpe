@@ -26,6 +26,7 @@
   with_items:
     - check_diskstat.sh
     - check_raid.pl
+    - check_memory
 
 - name: Template in override config file 
   template: src=../templates/override.cfg.j2 dest={{ nagios_cfg_file }} mode=0644
