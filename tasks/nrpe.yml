@@ -9,7 +9,7 @@
 - name: Install nrpe package
   apt: state=present name=nagios-nrpe-server
   notify:
-    - "restart nagios-nrpe-server"
+    - "restart nrpe"
 
 - name: Remove all hardcoded command settings from default nrpe.cfg
   lineinfile:
@@ -30,9 +30,9 @@
 
 - name: Template in override config file 
   template: src=../templates/override.cfg.j2 dest={{ nagios_cfg_file }} mode=0644
-    #       owner={{ nrpe_user }} group={{ nrpe_group }}
+           owner={{ nrpe_user }} group={{ nrpe_group }}
   notify:
-    - "restart nagios-nrpe-server"
+    - "restart nrpe"
 
 - name: Template in custom checks config file
   template: src="../templates/check_nagios.cfg.j2"
