@@ -41,7 +41,7 @@
             owner={{ nrpe_user }} group={{ nrpe_group }}
   #tags: update_nrpe_cfg
   notify:
-    - "restart nagios-nrpe-server"
+    - "Restart nagios-nrpe-server"
 
 - name: Make sure nrpe is started and enabled
   service: name=nagios-nrpe-server state=started enabled=yes
