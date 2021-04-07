@@ -30,7 +30,7 @@
 
 - name: Template in override config file 
   template: src=../templates/override.cfg.j2 dest={{ nagios_cfg_file }} mode=0644
-           owner={{ nrpe_user }} group={{ nrpe_group }}
+        #  owner={{ nrpe_user }} group={{ nrpe_group }}
   notify:
     - "restart nrpe"
 
@@ -39,7 +39,7 @@
             dest={{ nagios_include_dir }}/{{ nagios_custom_checks_file }}
             mode=0640
             owner={{ nrpe_user }} group={{ nrpe_group }}
-  #tags: update_nrpe_cfg
+  tags: update_nrpe_cfg
   notify:
     - "restart nrpe"
 
