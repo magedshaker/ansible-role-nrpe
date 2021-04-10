@@ -1,6 +1,9 @@
 ---
 # tasks file for ansible-role-nrpe
-
+- name: Include vars of stuff.yaml into the 'defaults' variable (2.2).
+  include_vars:
+    file: ../defaults/main.yml
+    name: main
 
 # GPG check is disabled because opsview are not signing their packages.
 - name: Import EPEL GPG Key
