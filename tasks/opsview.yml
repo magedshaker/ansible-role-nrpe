@@ -19,7 +19,7 @@
   yum: name=http://downloads.opsview.com/opsview-core/latest/yum/centos/7/x86_64/opsview-agent-4.6.0.436-1.ct7.x86_64.rpm
     state=present
   notify:
-    - "restart opsview-agent"
+   # - "restart opsview-agent"
     
 - name: Install Common Plugins
   yum: name={{ item }} state=latest update_cache=true 
