@@ -1,11 +1,26 @@
 ---
 # tasks file for ansible-role-nrpe
 
+
 # GPG check is disabled because opsview are not signing their packages.
+- name: Import EPEL GPG Key
+  rpm_key: key=https://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-7
+    state=present
+
+
+- name: Check for EPEL repo
+  yum: name=https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+    state=present
+    
 - name: Install opsview-agent package
-  yum: state=present name=opsview-agent disable_gpg_check=yes
+  yum: name=http://downloads.opsview.com/opsview-core/latest/yum/centos/7/x86_64/opsview-agent-4.6.0.436-1.ct7.x86_64.rpm
+    state=present
   notify:
     - "restart opsview-agent"
+    
+ - name: Install Common Plugins
+   yum: name={{ item }} state=latest update_cache=true 
+   loop: [libmcrypt, glibc.i686, ksh, libsemanage-python]
 
 - name: Remove all hardcoded command settings from default nrpe.cfg
   lineinfile:
