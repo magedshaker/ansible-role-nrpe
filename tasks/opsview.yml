@@ -21,9 +21,9 @@
   notify:
     - "restart opsview-agent"
     
- - name: Install Common Plugins
-   yum: name={{ item }} state=latest update_cache=true 
-   loop: [libmcrypt, glibc.i686, ksh, libsemanage-python]
+- name: Install Common Plugins
+  yum: name={{ item }} state=latest update_cache=true 
+  loop: [libmcrypt, glibc.i686, ksh, libsemanage-python]
 
 - name: Remove all hardcoded command settings from default nrpe.cfg
   lineinfile:
