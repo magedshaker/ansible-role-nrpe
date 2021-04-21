@@ -35,7 +35,7 @@
   when: remove_hardcoded_checks|default(false)|bool
 
 - name: Template in override config file (to set allowed_hosts)
-  template: src=override.cfg.j2 dest={{ opsview_cfg_file }} mode=0644
+  template: src="../templates/override.cfg.j2" dest={{ opsview_cfg_file }} mode=0644
             owner={{ nrpe_user }} group={{ nrpe_group }}
   notify:
     - "restart opsview-agent"
