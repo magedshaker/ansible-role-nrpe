@@ -89,9 +89,9 @@ opsview_plugins:
  - { command: "check_iops" , path: "{{ opsview_libexec_dir }}/check_diskstat.sh", arguments: -d sda -W 10 -C 20 }
  - { command: "check_zombie_procs" , path: "{{ opsview_libexec_dir }}/check_procs", arguments: "-w 5 -c 10 -s Z" }
  - { command: "check_bw" , path: "{{ opsview_libexec_dir }}/check_bw.sh", arguments: "-w 5000 -c 7000" }
- - { command: "check_clamd" , path: "{{ opsview_libexec_dir }}/check_clamd /var/run/clamav/clamd.sock", arguments: "$ARG1$" }
+ - { command: "check_clamd" , path: "{{ opsview_libexec_dir }}/check_clamd", arguments: "/var/run/clamav/clamd.sock" }
  - { command: "check_raid" , path: "{{ opsview_libexec_dir }}/check_raid", arguments: "$ARG1$" }
- - { command: "check_mysqlconf" , path: "{{ opsview_libexec_dir }}/check_file_md5 /etc/my.cnf", arguments: "$ARG1$" }
+ - { command: "check_mysqlconf" , path: "{{ opsview_libexec_dir }}/check_file_md5", arguments: "/etc/my.cnf" }
  - { command: "check_csf" , path: "{{ opsview_libexec_dir }}/check_csf", arguments: "$ARG1$" }
  
 
