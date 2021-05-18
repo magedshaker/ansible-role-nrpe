@@ -95,8 +95,6 @@ opsview_plugins:
  - { command: "check_csf" , path: "{{ opsview_libexec_dir }}/check_csf", arguments: "$ARG1$" }
  
 
- command[check_csf]=/usr/local/nagios/libexec/check_csf
-
 
 nrpe_extra_rpms:
  - nagios-common
