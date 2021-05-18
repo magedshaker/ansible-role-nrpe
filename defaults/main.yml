@@ -93,6 +93,10 @@ opsview_plugins:
  - { command: "check_raid" , path: "{{ opsview_libexec_dir }}/check_raid", arguments: "$ARG1$" }
  - { command: "check_mysqlconf" , path: "{{ opsview_libexec_dir }}/check_file_md5", arguments: "/etc/my.cnf" }
  - { command: "check_csf" , path: "{{ opsview_libexec_dir }}/check_csf", arguments: "$ARG1$" }
+ - { command: "check_queue" , path: "{{ opsview_libexec_dir }}/check_postfix_queue", arguments: "-w 70 -c 150" }
+ - { command: "check_iptables" , path: "{{ opsview_libexec_dir }}/check_iptables_status.sh", arguments: "-T filter  -r 10" }
+ - { command: "check_sqlgrey" , path: "{{ opsview_libexec_dir }}/check_tcp", arguments: "-H localhost -p 2501" }
+
  
 
 
