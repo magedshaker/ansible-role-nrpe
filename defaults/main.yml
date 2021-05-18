@@ -85,14 +85,14 @@ opsview_plugins:
  - { command: "check_eximq", path: "{{ opsview_libexec_dir }}/check_eximmailqueue", arguments: "$ARG1$" }
  - { command: "check_cert", path: "{{ opsview_libexec_dir }}/check_http", arguments: "-S -H box107.exaservers.com -C 30" }
  - { command: "check_raid_HP", path: "{{ opsview_libexec_dir }}/check_raid.pl", arguments: "-p hpacucli,cciss" }
- - { command: "check_raid_DELL", path: "{{ opsview_libexec_dir }}/check_om_storage.pl"}
+ - { command: "check_raid_DELL", path: "{{ opsview_libexec_dir }}/check_om_storage.pl", arguments: }
  - { command: "check_iops" , path: "{{ opsview_libexec_dir }}/check_diskstat.sh", arguments: -d sda -W 10 -C 20 }
  - { command: "check_zombie_procs" , path: "{{ opsview_libexec_dir }}/check_procs", arguments: "-w 5 -c 10 -s Z" }
  - { command: "check_bw" , path: "{{ opsview_libexec_dir }}/check_bw.sh", arguments: "-w 5000 -c 7000" }
  - { command: "check_clamd" , path: "{{ opsview_libexec_dir }}/check_clamd", arguments: "/var/run/clamav/clamd.sock" }
  - { command: "check_raid" , path: "{{ opsview_libexec_dir }}/check_raid", arguments: "$ARG1$" }
  - { command: "check_mysqlconf" , path: "{{ opsview_libexec_dir }}/check_file_md5", arguments: "/etc/my.cnf" }
- - { command: "check_csf" , path: "{{ opsview_libexec_dir }}/check_csf"}
+ - { command: "check_csf" , path: "{{ opsview_libexec_dir }}/check_csf", arguments: }
  - { command: "check_queue" , path: "{{ opsview_libexec_dir }}/check_postfix_queue", arguments: "-w 70 -c 150" }
  - { command: "check_iptables" , path: "{{ opsview_libexec_dir }}/check_iptables_status.sh", arguments: "-T filter  -r 10" }
  - { command: "check_sqlgrey" , path: "{{ opsview_libexec_dir }}/check_tcp", arguments: "-H localhost -p 2501" }
