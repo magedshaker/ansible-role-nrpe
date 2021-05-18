@@ -71,13 +71,18 @@ nagios_plugins:
  
 
 opsview_plugins:
+ - { command: "check_disk", path: "{{ opsview_libexec_dir }}/check_disk", arguments: "'-w 2% -c 1% -p /'" }
  - { command: "check_users", path: "{{ opsview_libexec_dir }}/check_users", arguments: "$ARG1$" }
- - { command: "check_load", path: "{{ opsview_libexec_dir }}/check_load", arguments: "$ARG1$" }
+ - { command: "check_load", path: "{{ opsview_libexec_dir }}/check_load", arguments: "-r -w 0.7,0.6,0.5 -c 0.95,0.85,0.75" }
  - { command: "check_disk", path: "{{ opsview_libexec_dir }}/check_disk", arguments: "$ARG1$" }
- - { command: "check_swap", path: "{{ opsview_libexec_dir }}/check_swap", arguments: "$ARG1$" }
+ - { command: "check_swap", path: "{{ opsview_libexec_dir }}/check_swap", arguments: "-a '-w 5% -c 1%'" }
  - { command: "check_procs", path: "{{ opsview_libexec_dir }}/check_procs", arguments: "$ARG1$" }
- - { command: "check_memory", path: "{{ opsview_libexec_dir }}/check_memory", arguments: "$ARG1$" }
+ - { command: "check_memory" , path: "{{ opsview_libexec_dir }}/check_memory", arguments: "-a '-w 90 -c 98'" }
  - { command: "check_file_age", path: "{{ opsview_libexec_dir }}/check_file_age", arguments: "$ARG1$" }
+ - { command: "check_raid_HP", path: "{{ opsview_libexec_dir }}/check_raid.pl", arguments: "-p hpacucli,cciss" }
+ - { command: "check_iops" , path: "{{ opsview_libexec_dir }}/check_diskstat.sh", arguments: -d sda -W 10 -C 20 }
+  - { command: "check_zombie_procs" , path: "{{ opsview_libexec_dir }}/check_procs", arguments: "-w 5 -c 10 -s Z" }
+
 
 nrpe_extra_rpms:
  - nagios-common
