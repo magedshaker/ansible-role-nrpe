@@ -25,8 +25,7 @@ log_facility=daemon
 # number.  The file is only written if the NRPE daemon is started by the root
 # user and is running in standalone mode.
 
-pid_file=/var/run/nagios/nrpe.pid
-
+pid_file=/var/tmp/nrpe.pid
 
 
 # PORT NUMBER
@@ -224,5 +223,5 @@ include=/etc/nagios/nrpe_local.cfg
 #
 # you can place your config snipplets into nrpe.d/
 # only snipplets ending in .cfg will get included
-include_dir=/etc/nagios/etc/nrpe_local
+include_dir=/usr/local/nagios/etc/nrpe_local
 
