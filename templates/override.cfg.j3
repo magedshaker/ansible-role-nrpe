@@ -218,8 +218,6 @@ connection_timeout=300
 #
 # local configuration:
 #       if you'd prefer, you can instead place directives here
-include=/etc/nagios/nrpe_local.cfg
-
 #
 # you can place your config snipplets into nrpe.d/
 # only snipplets ending in .cfg will get included
