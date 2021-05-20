@@ -46,10 +46,7 @@
             mode=0644
             owner={{ nrpe_user }} group={{ nrpe_group }}
  
-- name: Restart opsview
-  ansible.builtin.service:
-  name: opsview-agent
-  state: restarted
+
   
 - name: Make sure opsview-agent is started and enabled
   service: name=opsview-agent state=started enabled=yes
