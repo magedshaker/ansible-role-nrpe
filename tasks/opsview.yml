@@ -46,8 +46,8 @@
             mode=0644
             owner={{ nrpe_user }} group={{ nrpe_group }}
   #tags: update_opsview_cfg
-  #notify:
-  #  - "restart opsview-agent"
+  notify:
+    - "restart opsview-agent"
 
 - name: Make sure opsview-agent is started and enabled
   service: name=opsview-agent state=started enabled=yes
