@@ -45,8 +45,11 @@
             dest={{ opsview_include_dir }}/{{ nagios_custom_checks_file }}
             mode=0644
             owner={{ nrpe_user }} group={{ nrpe_group }}
-  notify:
-    - "restart opsview-agent"
+ handlers:
+    - name: Restart apache
+      ansible.builtin.service:
+        name: opsview-agent
+        state: restarted
   
 - name: Make sure opsview-agent is started and enabled
   service: name=opsview-agent state=started enabled=yes
