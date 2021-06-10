@@ -96,8 +96,8 @@ opsview_plugins:
  - { command: "check_queue" , path: "{{ opsview_libexec_dir }}/check_postfix_queue", arguments: "-w 70 -c 150" }
  - { command: "check_iptables" , path: "{{ opsview_libexec_dir }}/check_iptables_status.sh", arguments: "-T filter  -r 10" }
  - { command: "check_sqlgrey" , path: "{{ opsview_libexec_dir }}/check_tcp", arguments: "-H localhost -p 2501" }
+ - { command: "check_htblacklist" , path: "{{ opsview_libexec_dir }}/check_htblacklist.sh", arguments: }
 
- 
 
 
 nrpe_extra_rpms:
