@@ -12,7 +12,7 @@
 #		  comment result and uncomment the other to change method. 
 ####################################################################################################
 #Default method current day
-result=`grep "$(date +"%b %_d")" /var/log/zimbra.log | grep S3140 | sed -n 's/postfix.*//p' | awk '{print $4}' | sort | uniq -c | sort -nr` #check whole day
+result=`grep "$(date +"%b %_d")" /var/log/maillog | grep S3140 | sed -n 's/postfix.*//p' | awk '{print $4}' | sort | uniq -c | sort -nr` #check whole day
 #Alternative method last lines <on Dec 6 2018 there was 1906026 lines~22 line/sec ~ 6618 lines/5min>
 lines=10000
 #result=`tail -n$lines  /var/log/zimbra.log | grep S3140 | sed -n 's/postfix.*//p' | awk '{print $4}' | sort | uniq -c | sort -nr`  #check only last lines
