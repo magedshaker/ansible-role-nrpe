@@ -21,9 +21,9 @@
 #  notify:
    # - "restart opsview-agent"
     
-- name: Install Common Plugins
-  yum: name={{ item }} state=latest update_cache=true 
-  loop: [libmcrypt, glibc.i686, ksh, libsemanage-python]
+#- name: Install Common Plugins
+#  yum: name={{ item }} state=latest update_cache=true 
+#  loop: [libmcrypt, glibc.i686, ksh, libsemanage-python]
   
 - name: copy custom plugin files
   copy: src=../templates/{{ item }} dest={{ opsview_plugins_dir }} mode=0755
