@@ -11,9 +11,9 @@
     state=present
 
 
-#- name: Check for EPEL repo
-#  yum: name=https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
-#    state=present
+- name: Check for EPEL repo
+  yum: name=https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+    state=present
     
 #- name: Install opsview-agent package
 #  yum: name=http://downloads.opsview.com/opsview-core/latest/yum/centos/7/x86_64/opsview-agent-4.6.0.436-1.ct7.x86_64.rpm
