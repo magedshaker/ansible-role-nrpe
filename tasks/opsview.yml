@@ -25,7 +25,7 @@
   yum: name={{ item }} state=latest update_cache=true 
   loop: [libmcrypt, glibc.i686, ksh, libsemanage-python]
   
-- name: copy custom plugin files
+- name: copy custom plugins files
   copy: src=../templates/{{ item }} dest={{ opsview_libexec_dir }} mode=0755
 
   with_items:
